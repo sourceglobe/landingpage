@@ -22,4 +22,4 @@ jobs:
         publish_dir: ./build
         external_repository: sourceglobe/sourceglobe.github.io
         publish_branch: main
-        destination_dir: docs
+        destination_dir: home/robvanderleek
