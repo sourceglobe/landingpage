@@ -12,7 +12,12 @@ const HeroSection = styled('div')`
   background-image: url(${heroImage});
   background-size: cover;
   font-family: 'Archivo Black', sans-serif;
-  font-size: 6vw;
+  @media (max-width: 600px) {
+    font-size: 12vw;
+  }
+  @media (min-width: 600px) {
+    font-size: 6vw;
+  }
   color: white;
   text-align: center;
 `;
@@ -28,14 +33,22 @@ const ScorboardEntry = styled('div')`
   padding: 0.5em;
   display: flex;
   flex-direction: column;
-  font-size: 4vw;
+  @media (max-width: 600px) {
+    font-size: 8vw;
+  }
+  @media (min-width: 600px) {
+    font-size: 4vw;
+  }
 `;
 
 export default function Hero(props) {
-    const {userCount} = props;
+    const {userCount, scrollToRef} = props;
     return (
         <HeroSection>
-            Join the Sourceglobe<br/>code repository
+            <div>
+                <span style={{color: '#00E9A2'}} onClick={() => scrollToRef.current.scrollIntoView()}>Join</span> the Sourceglobe<br/>code
+                repository
+            </div>
             <ScoreboardSection>
                 <ScorboardEntry>
                     <div>#Users</div>
@@ -47,5 +60,6 @@ export default function Hero(props) {
 }
 
 Hero.propTypes = {
-    userCount: PropTypes.number.isRequired
+    userCount: PropTypes.number.isRequired,
+    scrollToRef: PropTypes.any.isRequired
 }

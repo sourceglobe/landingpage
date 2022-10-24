@@ -1,8 +1,8 @@
-import {AppBar, styled, Toolbar} from "@mui/material";
-import logo from './static/sourceglobe-logo-white-on-transparent-128x128.png';
+import {styled} from "@mui/material";
 import Hero from "./components/Hero";
 import NewUsers from "./components/NewUsers";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import AppBar from "./components/AppBar";
 
 const Page = styled('div')`
   background-color: rgb(14, 17, 22);
@@ -11,6 +11,7 @@ const Page = styled('div')`
 function App() {
     const [userCount, setUserCount] = useState(0);
     const [newUsers, setNewUsers] = useState([]);
+    const scrollToRef = useRef(null);
 
     useEffect(() => {
         const loodScoreboard = async () => {
@@ -28,13 +29,9 @@ function App() {
 
     return (
         <Page>
-            <AppBar position="fixed" style={{background: 'none'}} elevation={0}>
-                <Toolbar style={{minHeight: '80px'}}>
-                    <img src={logo} alt="Sourceglobe logo" height={48}/>
-                </Toolbar>
-            </AppBar>
-            <Hero userCount={userCount}/>
-            <NewUsers newUsers={newUsers}/>
+            <AppBar/>
+            <Hero userCount={userCount} scrollToRef={scrollToRef}/>
+            <NewUsers newUsers={newUsers} scrollToRef={scrollToRef}/>
             <div>
                 Photo by <a
                 href="https://unsplash.com/@jkozoski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Juliana
@@ -42,8 +39,6 @@ function App() {
                 href="https://unsplash.com/s/photos/globe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
             </div>
         </Page>
-
-
     );
 }
 
