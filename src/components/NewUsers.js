@@ -15,17 +15,17 @@ const UserCard = styled('div')`
 `;
 
 export default function NewUsers(props) {
-    const {newUsers} = props;
+    const {newUsers, scrollToRef} = props;
     if (newUsers.length === 0) {
         return null;
     } else {
         return (
-            <Grid container spacing={2}>
+            <Grid ref={scrollToRef} container spacing={2}>
                 {newUsers.map(u =>
-                        <Grid key={u.login} item xs={3}>
+                        <Grid key={u.login} item xs={6} md={3}>
                             <a  href={`https://sourceglobe.github.io/home/${u.login}`}>
                             <UserCard>
-                                <Avatar src={u.avatar_url} style={{width: '100px', height: '100px'}}/>
+                                <Avatar src={u.avatar_url} style={{width: '50%', height: '50%'}}/>
                                 <span>{u.login}</span>
                                 <span>{DateTime.fromMillis(u.since).toRelative()}</span>
                             </UserCard>
@@ -38,5 +38,6 @@ export default function NewUsers(props) {
 }
 
 NewUsers.propTypes = {
-    newUsers: PropTypes.array.isRequired
+    newUsers: PropTypes.array.isRequired,
+    scrollToRef: PropTypes.any.isRequired
 }
