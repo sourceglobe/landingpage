@@ -2,6 +2,7 @@ import {AppBar as MuiAppBar, Button, styled, Toolbar as MuiToolbar} from "@mui/m
 import sourceGlobeLogo from "../static/sourceglobe-logo-green-on-transparent-128x128.png";
 import githubLogo from '../static/github-logo-white-on-transparent-120x120.png';
 import PropTypes from "prop-types";
+import Hyperlink from "./Hyperlink";
 
 const ActiveLogo = styled('a')`
   filter: grayscale(100%);
@@ -33,7 +34,9 @@ export default function AppBar(props) {
                     <span style={{marginRight: '1em'}}>
                         <Button variant="contained" onClick={() => scrollToRef.current.scrollIntoView()}>Join</Button>
                     </span>
-                    <a href="https://github.com/sourceglobe/sourceglobe.github.io"><img src={githubLogo} height={48}/></a>
+                    <Hyperlink href="https://github.com/sourceglobe"><img alt="GitHub logo"
+                                                                          src={githubLogo}
+                                                                          height={48}/></Hyperlink>
                 </TopRightSection>
             </Toolbar>
         </MuiAppBar>
