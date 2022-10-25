@@ -41,12 +41,17 @@ const ScorboardEntry = styled('div')`
   }
 `;
 
+const ActiveSpan = styled('span')`
+  color: #00E9A2;
+  cursor: pointer;
+`;
+
 export default function Hero(props) {
     const {userCount, scrollToRef} = props;
     return (
         <HeroSection>
             <div>
-                <span style={{color: '#00E9A2'}} onClick={() => scrollToRef.current.scrollIntoView()}>Join</span> the Sourceglobe<br/>code
+                <ActiveSpan onClick={() => scrollToRef.current.scrollIntoView()}>Join</ActiveSpan> the Sourceglobe<br/>code
                 repository
             </div>
             <ScoreboardSection>

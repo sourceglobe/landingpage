@@ -1,11 +1,19 @@
 import {AppBar as MuiAppBar, Button, styled, Toolbar as MuiToolbar} from "@mui/material";
-import logo from "../static/sourceglobe-logo-green-on-transparent-128x128.png";
+import sourceGlobeLogo from "../static/sourceglobe-logo-green-on-transparent-128x128.png";
+import githubLogo from '../static/github-logo-white-on-transparent-120x120.png';
+import PropTypes from "prop-types";
 
 const ActiveLogo = styled('a')`
   filter: grayscale(100%);
+
   &:hover {
     filter: grayscale(0%);
   }
+`;
+
+const TopRightSection = styled('div')`
+  display: flex;
+  align-items: center;
 `;
 
 const Toolbar = styled(MuiToolbar)`
@@ -14,13 +22,24 @@ const Toolbar = styled(MuiToolbar)`
   height: 80px;
 `;
 
-export default function AppBar() {
+export default function AppBar(props) {
+    const {scrollToRef} = props;
     return (
         <MuiAppBar position="fixed" style={{background: 'none'}} elevation={0}>
             <Toolbar>
-                <ActiveLogo href="https://sourceglobe.github.io"><img src={logo} alt="Sourceglobe logo" height={48}/></ActiveLogo>
-                <Button variant="contained">Join</Button>
+                <ActiveLogo href="https://sourceglobe.github.io"><img src={sourceGlobeLogo} alt="Sourceglobe logo"
+                                                                      height={48}/></ActiveLogo>
+                <TopRightSection>
+                    <span style={{marginRight: '1em'}}>
+                        <Button variant="contained" onClick={() => scrollToRef.current.scrollIntoView()}>Join</Button>
+                    </span>
+                    <a href="https://github.com/sourceglobe/sourceglobe.github.io"><img src={githubLogo} height={48}/></a>
+                </TopRightSection>
             </Toolbar>
         </MuiAppBar>
     );
+}
+
+AppBar.propTypes = {
+    scrollToRef: PropTypes.any.isRequired
 }

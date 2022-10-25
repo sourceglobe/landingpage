@@ -29,7 +29,7 @@ function App() {
 
     return (
         <Page>
-            <AppBar/>
+            <AppBar scrollToRef={scrollToRef}/>
             <Hero userCount={userCount} scrollToRef={scrollToRef}/>
             <NewUsers newUsers={newUsers} scrollToRef={scrollToRef}/>
             <div>
