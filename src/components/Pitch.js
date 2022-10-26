@@ -29,7 +29,7 @@ export default function Pitch(props) {
                 created your GitHub account or you're an experienced software engineer, everyone
                 is welcome to merge in their code.<br/>
                 Anything goes (as long as you don't violate GitHub policies).<br/>
-                Any technology goes, actually, the more technologies, the better.<br/>
+                Any technology goes, actually, the more technologies the better.<br/>
             </p>
             <p>
                 Pull-Requests will be merged automatically after they pass 3 rules:
