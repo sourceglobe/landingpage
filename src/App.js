@@ -3,6 +3,8 @@ import Hero from "./components/Hero";
 import NewUsers from "./components/NewUsers";
 import {useEffect, useRef, useState} from "react";
 import AppBar from "./components/AppBar";
+import Pitch from "./components/Pitch";
+import Footer from "./components/Footer";
 
 const Page = styled('div')`
   background-color: rgb(14, 17, 22);
@@ -11,7 +13,8 @@ const Page = styled('div')`
 function App() {
     const [userCount, setUserCount] = useState(0);
     const [newUsers, setNewUsers] = useState([]);
-    const scrollToRef = useRef(null);
+    const scrollToPitchRef = useRef(null);
+    const scrollToNewUsersRef = useRef(null);
 
     useEffect(() => {
         const loodScoreboard = async () => {
@@ -29,15 +32,11 @@ function App() {
 
     return (
         <Page>
-            <AppBar scrollToRef={scrollToRef}/>
-            <Hero userCount={userCount} scrollToRef={scrollToRef}/>
-            <NewUsers newUsers={newUsers} scrollToRef={scrollToRef}/>
-            <div>
-                Photo by <a
-                href="https://unsplash.com/@jkozoski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Juliana
-                Kozoski</a> on <a
-                href="https://unsplash.com/s/photos/globe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-            </div>
+            <AppBar scrollToPitchRef={scrollToPitchRef}/>
+            <Hero userCount={userCount} scrollToPitchRef={scrollToPitchRef} scrollToNewUserRef={scrollToNewUsersRef}/>
+            <Pitch scrollToPitchRef={scrollToPitchRef}/>
+            <NewUsers newUsers={newUsers} scrollToNewUserRef={scrollToNewUsersRef}/>
+            <Footer/>
         </Page>
     );
 }

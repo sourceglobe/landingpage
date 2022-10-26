@@ -9,6 +9,7 @@ const ActiveLogo = styled('a')`
 
   &:hover {
     filter: grayscale(0%);
+    transition: 1.5s;
   }
 `;
 
@@ -24,15 +25,16 @@ const Toolbar = styled(MuiToolbar)`
 `;
 
 export default function AppBar(props) {
-    const {scrollToRef} = props;
+    const {scrollToPitchRef} = props;
     return (
-        <MuiAppBar position="fixed" style={{background: 'none'}} elevation={0}>
+        <MuiAppBar  position="fixed" style={{background: 'none'}} elevation={0}>
             <Toolbar>
                 <ActiveLogo href="https://sourceglobe.github.io"><img src={sourceGlobeLogo} alt="Sourceglobe logo"
                                                                       height={48}/></ActiveLogo>
                 <TopRightSection>
                     <span style={{marginRight: '1em'}}>
-                        <Button variant="contained" onClick={() => scrollToRef.current.scrollIntoView()}>Join</Button>
+                        <Button variant="contained"
+                                onClick={() => scrollToPitchRef.current.scrollIntoView()}>Join</Button>
                     </span>
                     <Hyperlink href="https://github.com/sourceglobe"><img alt="GitHub logo"
                                                                           src={githubLogo}
@@ -44,5 +46,5 @@ export default function AppBar(props) {
 }
 
 AppBar.propTypes = {
-    scrollToRef: PropTypes.any.isRequired
+    scrollToPitchRef: PropTypes.any.isRequired
 }

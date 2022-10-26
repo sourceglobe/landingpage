@@ -33,6 +33,7 @@ const ScorboardEntry = styled('div')`
   padding: 0.5em;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   @media (max-width: 600px) {
     font-size: 8vw;
   }
@@ -47,17 +48,17 @@ const ActiveSpan = styled('span')`
 `;
 
 export default function Hero(props) {
-    const {userCount, scrollToRef} = props;
+    const {userCount, scrollToPitchRef, scrollToNewUserRef} = props;
     return (
         <HeroSection>
             <div>
-                <ActiveSpan onClick={() => scrollToRef.current.scrollIntoView()}>Join</ActiveSpan> the Sourceglobe<br/>code
+                <ActiveSpan onClick={() => scrollToPitchRef.current.scrollIntoView()}>Join</ActiveSpan> the Sourceglobe<br/>code
                 repository
             </div>
             <ScoreboardSection>
-                <ScorboardEntry>
+                <ScorboardEntry onClick={() => scrollToNewUserRef.current.scrollIntoView()}>
                     <div>#Users</div>
-                    <div><CountUp end={userCount} duration={3}/></div>
+                    <div style={{color: '#00E9A2'}}><CountUp end={userCount} duration={3}/></div>
                 </ScorboardEntry>
             </ScoreboardSection>
         </HeroSection>
@@ -66,5 +67,6 @@ export default function Hero(props) {
 
 Hero.propTypes = {
     userCount: PropTypes.number.isRequired,
-    scrollToRef: PropTypes.any.isRequired
+    scrollToPitchRef: PropTypes.any.isRequired,
+    scrollToNewUserRef: PropTypes.any.isRequired
 }
