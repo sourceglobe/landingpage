@@ -39,7 +39,7 @@ export default function Pitch(props) {
                     </li>
                     <li>The total size of all your files is not larger than 1 Mb (1.048.576 bytes)</li>
                 </ol>
-                <img src={caretakerBotImage} width={150} align="right"/>
+                <img src={caretakerBotImage} width={150} alt="Caretaker bot" align="right"/>
                 BTW the Caretaker bot will guide you through the Pull-Request process.
             </p>
             <h3>How to get started?</h3>
