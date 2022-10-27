@@ -57,7 +57,7 @@ export default function Pitch(props) {
                     <li>Open a Pull-Request and follow the directions of the Caretaker bot</li>
                 </ol>
             </p>
-            <h3>Newest users</h3>
+            <h3>Newest contributors</h3>
         </PitchSection>
     )
 }

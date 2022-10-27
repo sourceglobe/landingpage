@@ -57,7 +57,7 @@ export default function Hero(props) {
             </div>
             <ScoreboardSection>
                 <ScorboardEntry onClick={() => scrollToNewUserRef.current.scrollIntoView()}>
-                    <div>#Users</div>
+                    <div>#Contributors</div>
                     <div style={{color: '#00E9A2'}}><CountUp end={userCount} duration={3}/></div>
                 </ScorboardEntry>
             </ScoreboardSection>

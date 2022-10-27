@@ -15,11 +15,21 @@ const UserCard = styled('div')`
 `;
 
 const Joined = styled('span')`
-  font-size: 0.9vw;
+  @media (max-width: 600px) {
+    font-size: 3vw;
+  }
+  @media (min-width: 600px) {
+    font-size: 0.9vw;
+  }
 `
 
 const Login = styled('span')`
-  font-size: 1.2vw;
+  @media (max-width: 600px) {
+    font-size: 3.5vw;
+  }
+  @media (min-width: 600px) {
+    font-size: 1.2vw;
+  }
 `
 
 export default function NewUsers(props) {
