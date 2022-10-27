@@ -1,6 +1,7 @@
 import {Container, styled} from "@mui/material";
 import PropTypes from "prop-types";
 import caretakerBotImage from "../static/sourceglobe-caretaker-bot.png";
+import Hyperlink from "./Hyperlink";
 
 const PitchSection = styled(Container)`
   @media (max-width: 600px) {
@@ -34,7 +35,10 @@ export default function Pitch(props) {
             <p>
                 Pull-Requests will be merged automatically after they pass 3 rules:
                 <ol>
-                    <li>You must have starred the Sourceglobe repository</li>
+                    <li>You must have <Hyperlink
+                        href="https://github.com/sourceglobe/sourceglobe.github.io/stargazers">starred</Hyperlink> the
+                        Sourceglobe repository
+                    </li>
                     <li>All files must be located in your "home folder" (for example: <code>home/sir-type-a-lot</code>)
                     </li>
                     <li>The total size of all your files is not larger than 1 Mb (1.048.576 bytes)</li>
@@ -46,7 +50,9 @@ export default function Pitch(props) {
             <p>
                 Contributing to the Sourceglobe code repository is easy! Follow these 3 steps to get your code in:
                 <ol>
-                    <li>Fork the Sourceglobe repository on GitHub</li>
+                    <li><Hyperlink href="https://github.com/sourceglobe/sourceglobe.github.io/fork">Fork</Hyperlink> the
+                        Sourceglobe repository on GitHub
+                    </li>
                     <li>Add your code in your "home folder" (for example: <code>home/sir-type-a-lot</code>)</li>
                     <li>Open a Pull-Request and follow the directions of the Caretaker bot</li>
                 </ol>
